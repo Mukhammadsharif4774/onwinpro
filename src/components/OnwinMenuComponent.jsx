@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState, useCallback} from 'react';
 import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AppContext} from './AppContext';
-import {COLORS, FONTS, width} from '../helpers/colors';
+import {COLORS, FONTS} from '../helpers/colors';
 
 export default function ({item}) {
   const {shouldRefresh, toggleRefresh} = useContext(AppContext);
@@ -47,8 +47,9 @@ export default function ({item}) {
         style={{
           width: '55%',
           justifyContent: 'space-between',
-          height: 100,
+          height: 130,
           marginLeft: 10,
+          paddingVertical: 5,
         }}>
         <Text style={styles.title}>{item?.name}</Text>
 
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   main: {
     width: '100%',
     alignSelf: 'center',
-    height: 120,
+    height: 130,
     marginTop: 35,
     backgroundColor: COLORS.white,
     flexDirection: 'row',
@@ -78,50 +79,48 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '45%',
-    height: 120,
+    height: 130,
     borderRadius: 12,
     alignSelf: 'center',
     borderWidth: 2,
     borderColor: COLORS.main,
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: FONTS.bold,
     color: COLORS.main,
-    width: '100%',
+    width: '95%',
   },
   description: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: FONTS.light,
     color: COLORS.black,
-    width: '100%',
+    width: '95%',
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 2,
   },
   price: {
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: FONTS.bold,
     textAlign: 'center',
     verticalAlign: 'middle',
     marginLeft: 10,
     color: COLORS.white,
     borderRadius: 8,
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
     backgroundColor: COLORS.pink,
   },
   button: {
     fontFamily: FONTS.black,
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 13,
     color: COLORS.white,
     borderColor: COLORS.pink,
     backgroundColor: COLORS.pink,
-    width: width * 0.28,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
     borderRadius: 8,
   },
 });

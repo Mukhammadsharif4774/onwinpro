@@ -4,7 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  ScrollView,
+  ScrollView, FlatList,
 } from 'react-native';
 import {AppContext} from '../components/AppContext';
 import OnwinHeader from '../components/OnwinHeader';
@@ -35,6 +35,8 @@ export default function OnwinHomeScreen() {
     toggleRefresh(!shouldRefresh);
   };
 
+  const renderProduct = ({ item }) => <OnwinMenuComponent item={item} />;
+
   return (
     <View style={styles.container}>
       <OnwinHeader />
@@ -51,11 +53,13 @@ export default function OnwinHomeScreen() {
         ))}
       </View>
 
-      <ScrollView style={styles.flex} contentContainerStyle={styles.main}>
-        {onWinProducts[category].map((product, index) => (
-          <OnwinMenuComponent key={index} item={product} />
-        ))}
-      </ScrollView>
+      <FlatList
+          data={onWinProducts[category]}
+          renderItem={renderProduct}
+          keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={styles.main}
+          style={styles.flex}
+      />
     </View>
   );
 }

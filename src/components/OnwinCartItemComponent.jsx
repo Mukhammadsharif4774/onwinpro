@@ -101,13 +101,12 @@ const styles = StyleSheet.create({
     width: width * 0.95,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: 100,
+    height: 130,
   },
   image: {
     width: '45%',
-    height: 100,
+    height: 130,
     borderRadius: 12,
-    marginTop: 8,
   },
   details: {
     flex: 1,
